@@ -757,5 +757,35 @@ document.getElementById("bookingForm")
 
 </script>
 
-</body>
+<script>
+document.getElementById("bookingForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const guests = document.getElementById("guests").value;
+
+    const restaurantNumber = "91XXXXXXXXXX";
+
+    const message =
+    `Hello! I want to reserve a table.
+
+Name: ${name}
+Phone: ${phone}
+Date: ${date}
+Time: ${time}
+Guests: ${guests}`;
+
+    const url = "https://wa.me/" +
+    restaurantNumber + "?text=" +
+    encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+});
+</script></body>
   </html>
